@@ -1,0 +1,42 @@
+import pandas as pd
+import matplotlib.pyplot as plt 
+import seaborn as sns
+df = pd.read_csv("/Users/shifaasif/Downloads/titanic 3/train.csv") 
+
+df.info() #Cabin and age is missing. 
+
+#I used the fillna because the values are important and it shouldn't be lost
+
+sns.boxplot(x=df["Fare"]) #We created the boxplot for Fare
+plt.show() #The 500 fare is the outlier as it is very much far away 
+#All the points after the 65 they are outliers, the points include the 100, 300 etc.
+
+
+sns.countplot(x="Survived", data=df)
+plt.show()
+#Number of people who survived and who didn't 
+
+sns.histplot(df["Age"], bins=20)
+
+plt.xlabel("Age")
+plt.ylabel("Frequency")
+plt.show()
+numerical_df = df.select_dtypes(include="number")
+correlation = numerical_df.corr()
+
+plt.figure(figsize=(8, 6))
+
+plt.figure(figsize=(8, 6))
+
+sns.heatmap(
+    correlation,
+    annot=True,
+    cmap="coolwarm",
+    fmt=".2f"
+)
+
+plt.title("Correlation Heatmap")
+plt.show()
+
+
+#Factor contributing to the survival. The factors on which the stipend depends is the passenger class, passenger class has the correlation of -0.34 and it keeps decreasing as it goes down, so that is what I am looking at.
