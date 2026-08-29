@@ -8,3 +8,5 @@ Internship task 3
 15 (False Positives): passengers who actually died, but the model predicted they'd survive
 19 (False Negatives): passengers who actually survived, but the model predicted they'd die
 55 (True Positives): passengers who actually survived, and the model correctly predicted survival
+
+Internship task 4: The model explains 49.8% of variance in the house prices of California using the factors selected by me. The features include the square footage, number of rooms and location. 
